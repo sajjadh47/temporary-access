@@ -53,7 +53,7 @@ Just activate the plugin, you are good to go. All are done for you.
 
 ### 1. Dashboard.
 
-![Dashboard.](https://github.com/sajjadh47/temporary-access/raw/main/screenshot-1.png)
+![Dashboard.](https://s.w.org/plugins/temporary-access/screenshot-1.png)
 
 
 ## Changelog

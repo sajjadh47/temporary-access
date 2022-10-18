@@ -417,11 +417,13 @@ if ( ! function_exists( 'ta_temporary_access_generate_link' ) )
                 break;
             }
 
-            $hashedLink = base64_encode( $user . '-' . $timeLimitVal . '-' . current_time( 'U' ) );
+            $sha1 = sha1( $user . '-' . $timeLimitVal . '-' . current_time( 'U' ) );
+
+            update_option( 'ta_temporary_access_hash_data_' . $sha1, base64_encode( $user . '-' . $timeLimitVal ), false );
 
             $response['link'] = add_query_arg( array( 
-                'temporary_access_hash' => $hashedLink,
-            ), admin_url() );
+                'temporary_access_hash' => $sha1,
+            ), site_url() );
             
             wp_send_json_success( $response );
         }
@@ -450,37 +452,44 @@ if ( ! function_exists( 'ta_temporary_access_capture_generate_link' ) )
         if ( isset( $_REQUEST['temporary_access_hash'] ) )
         {
             $hashedLink = sanitize_text_field( $_REQUEST['temporary_access_hash'] );
+
+            $hashDataFromDb = get_option( 'ta_temporary_access_hash_data_' . $hashedLink, array() );
             
-            $hashedData = explode( '-', base64_decode( $hashedLink ) );
-
-            if ( count( $hashedData ) == 3 )
+            if ( ! empty( $hashDataFromDb ) )
             {
-                $user           = get_user_by( 'login', sanitize_user( $hashedData[0] ) );
+                $hashedData = explode( '-', base64_decode( $hashDataFromDb ) );
 
-                $timeLimitVal   = intval( $hashedData[1] );
-
-                // Redirect URL
-                if ( ! is_wp_error( $user ) && $timeLimitVal )
+                if ( count( $hashedData ) == 2 )
                 {
-                    if ( get_option( 'ta_temporary_access_hash_' . $hashedLink, false ) == 'accessed' )
-                    {    
-                        return;
-                    }
-                    else
+                    $user           = get_user_by( 'login', sanitize_user( $hashedData[0] ) );
+
+                    $timeLimitVal   = intval( $hashedData[1] );
+
+                    // Redirect URL
+                    if ( ! is_wp_error( $user ) && $timeLimitVal )
                     {
-                        update_option( 'ta_temporary_access_hash_' . $hashedLink, 'accessed', false );
+                        if ( get_option( 'ta_temporary_access_hash_' . $hashedLink, false ) == 'accessed' )
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            update_option( 'ta_temporary_access_hash_' . $hashedLink, 'accessed', false );
+                        }
+                        
+                        wp_destroy_current_session();
+                        
+                        wp_clear_auth_cookie();
+                        
+                        wp_set_current_user ( $user->ID );
+                        
+                        wp_set_auth_cookie  ( $user->ID );
+
+                        update_user_meta( $user->ID, 'temporary_access_time', current_time( 'U' ) + $timeLimitVal );
+
+                        wp_safe_redirect( user_admin_url() ); exit();
                     }
-                    
-                    wp_destroy_current_session();
-                    wp_clear_auth_cookie();
-                    
-                    wp_set_current_user ( $user->ID );
-                    wp_set_auth_cookie  ( $user->ID );
-
-                    update_user_meta( $user->ID, 'temporary_access_time', current_time( 'U' ) + $timeLimitVal );
-
-                    wp_safe_redirect( user_admin_url() ); exit();
-                }
+                }    
             }
         }
     }    
@@ -489,7 +498,7 @@ if ( ! function_exists( 'ta_temporary_access_capture_generate_link' ) )
 /**
  * Check if the current user is logged in as temporary access and the access time is expired
  */
-add_action( 'template_redirect', 'ta_temporary_access_check_for_temporary_access_expired' );
+add_action( 'init', 'ta_temporary_access_check_for_temporary_access_expired' );
 
 if ( ! function_exists( 'ta_temporary_access_check_for_temporary_access_expired' ) )
 {
@@ -504,7 +513,12 @@ if ( ! function_exists( 'ta_temporary_access_check_for_temporary_access_expired'
             if ( ! empty( $expiry_time ) && current_time( 'U' ) > $expiry_time )
             {
                 wp_destroy_current_session();
+                
                 wp_clear_auth_cookie();
+                
+                wp_set_current_user( 0 );
+                
+                wp_logout();
 
                 delete_user_meta( $user_id, 'temporary_access_time' );
 

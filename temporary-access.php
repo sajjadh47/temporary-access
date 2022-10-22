@@ -276,7 +276,7 @@ if ( ! function_exists( 'ta_temporary_access_select_user_callback' ) )
 
                     $roles = implode( ', ', $user->roles );
                     
-                    echo "<option value='{$user->user_login}' data-userrole='{$roles}'>{$user->user_login}</option>";
+                    echo "<option value='". esc_attr( $user->user_login ) ."' data-userrole='". esc_attr( $roles ) ."'>". esc_html( $user->user_login ) ."</option>";
 
                 endforeach;
             ?>
@@ -302,7 +302,7 @@ if ( ! function_exists( 'ta_temporary_access_user_role_callback' ) )
                 <?php
                     foreach ( $roles as $roleId => $roleName ) :
                         
-                        echo "<option value='{$roleId}'>{$roleName['name']}</option>";
+                        echo "<option value='". esc_attr( $roleId ) ."'>". esc_html( $roleName['name'] ) ."</option>";
 
                     endforeach;
                 ?>

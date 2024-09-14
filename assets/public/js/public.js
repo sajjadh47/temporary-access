@@ -10,15 +10,15 @@ jQuery( document ).ready( function( $ )
 		var ta_temporary_timer = setInterval( function()
 		{
 			// If the count down is over 
-		    if ( distance < 0 )
-		    {
-		        clearInterval( ta_temporary_timer );
+			if ( distance < 0 )
+			{
+				clearInterval( ta_temporary_timer );
 
-		        location.reload();
-		    }
-		    
-		    // Time calculations for hours, minutes and seconds
-		    var d, h, m, s;
+				location.reload();
+			}
+			
+			// Time calculations for hours, minutes and seconds
+			var d, h, m, s;
 			s = Math.floor( distance / 1000 );
 			m = Math.floor( s / 60 );
 			s = s % 60;
@@ -26,11 +26,11 @@ jQuery( document ).ready( function( $ )
 			m = m % 60;
 			d = Math.floor( h / 24 );
 			h = h % 24;
-		    
-		    // Output the result in an element
-		    ta_temporary_access_time_count.html( d + "d " + h + "h " + m + "m " + s + "s" );
+			
+			// Output the result in an element
+			ta_temporary_access_time_count.html( d + "d " + h + "h " + m + "m " + s + "s" );
 
-		    distance -= 1000;
+			distance -= 1000;
 		
 		}, 1000 );
 	}

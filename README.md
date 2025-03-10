@@ -1,10 +1,11 @@
 # Temporary Access
 
+**Tags:** wp-admin, admin-login, login, auto-login, access, temporary-access, one-time-access \
 **Contributors:** sajjad67 \
-**Tags:** wp-admin,admin-login,login,auto-login,access,temporary-access,one-time-access \
 **Requires at least:** 5.6 \
-**Tested up to:** 6.6 \
-**Stable tag:** 1.0.2 \
+**Tested up to:** 6.7 \
+**Stable tag:** 2.0.0 \
+**Requires PHP:** 8.0
 **License:** GPLv2 \
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,19 +54,20 @@ Just activate the plugin, you are good to go. All are done for you.
 
 ### 1. Dashboard.
 
-![Dashboard.](https://github.com/sajjadh47/temporary-access/raw/main/screenshot-1.png)
-
+![Dashboard.](https://ps.w.org/temporary-access/assets/screenshot-1.png)
 
 ## Changelog
+
+### 2.0.1
+- Minor changes in codebase only.
 
 ### 1.0.2
 - Compatibility check for wp 6.6
 
 ### 1.0.1
-
 - Compatibility check for wp 6.3
-### 1.0.0
 
+### 1.0.0
 - Initial release.
 
 ## Upgrade Notice

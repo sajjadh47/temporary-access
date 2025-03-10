@@ -1,27 +1,38 @@
 <?php
 
 /**
- * Bail if uninstall constant is not defined
+ * Fired when the plugin is uninstalled.
+ *
+ * @since      2.0.0
+ * @package    Temporary_Access
  */
 
-defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
+// If uninstall not called from WordPress, then exit.
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) die;
 
 /**
  * Remove plugin options on uninstall/delete
  */
-
 delete_option( 'ta_temporary_access_settings' );
+
+global $wpdb;
 
 /**
  * Remove users meta on uninstall/delete
  */
-
-global $wpdb;
-
-$wpdb->query( "DELETE FROM $wpdb->usermeta WHERE meta_key = 'temporary_access_time'" );
+$wpdb->query(
+	$wpdb->prepare(
+		"DELETE FROM {$wpdb->usermeta} WHERE meta_key = %s",
+		'temporary_access_time'
+	)
+);
 
 /**
  * Remove options on uninstall/delete
  */
-
-$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '%ta_temporary_access_hash_%'" );
+$wpdb->query(
+	$wpdb->prepare(
+		"DELETE FROM {$wpdb->options} WHERE option_name LIKE %s",
+		'%ta_temporary_access_hash_%'
+	)
+);

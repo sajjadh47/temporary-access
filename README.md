@@ -58,7 +58,7 @@ Just activate the plugin, you are good to go. All are done for you.
 
 ## Changelog
 
-### 2.0.1
+### 2.0.0
 - Minor changes in codebase only.
 
 ### 1.0.2

@@ -1,13 +1,8 @@
 # Temporary Access
 
 **Tags:** wp-admin, admin-login, login, auto-login, access, temporary-access, one-time-access \
-**Contributors:** sajjad67 \
-**Requires at least:** 5.6 \
 **Tested up to:** 6.7 \
-**Stable tag:** 2.0.0 \
-**Requires PHP:** 8.0 \
-**License:** GPLv2 \
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+**Requires PHP:** 8.0
 
 This plugin helps you to create a temporary login for a limited amount of time to give access anyone.
 
@@ -17,12 +12,12 @@ Give anyone a temporary access to your site for a limited amount of time with ro
 
 ### Features:
 
-- Enable/Disable Temporary Access
-- Select Any User
-- Restrict User With Time Limit
-- One Time Temporary Access Url
+- Activate or Deactivate Temporary Access
+- Choose Any User for Access
+- Set Time-Limited Access Restrictions
+- Generate a One-Time Temporary Access URL
 
-**Interested in contributing to WP Login Ajaxify?**
+**Interested in contributing to Temporary Access?**
 Contact me sagorh672(at)gmail.com
 
 ## Installation
@@ -56,7 +51,18 @@ Just activate the plugin, you are good to go. All are done for you.
 
 ![Dashboard.](https://ps.w.org/temporary-access/assets/screenshot-1.png)
 
+### 2. Dashboard.
+
+![Dashboard.](https://ps.w.org/temporary-access/assets/screenshot-2.png)
+
+### 3. Dashboard.
+
+![Dashboard.](https://ps.w.org/temporary-access/assets/screenshot-3.png)
+
 ## Changelog
+
+### 2.0.1
+- Checked for latest wp version 6.8
 
 ### 2.0.0
 - Minor changes in codebase only.

@@ -1,0 +1,23 @@
+.temporary-link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.temporary-link code {
+	padding: 5px 10px;
+	border-radius: 4px;
+	color: white;
+	background-color: #23201e;
+}
+
+.temporary-link .code-copied {
+	display: none;
+}
+
+.temporary-link .copy-to-clipboard {
+	fill: #23201e;
+	cursor: pointer;
+	height: 20px;
+	width: 20px;
+}

@@ -2,9 +2,9 @@
 Tags: login, auto-login, access, temporary-access, one-time-access
 Contributors: sajjad67
 Author: Sajjad Hossain Sagor
-Tested up to: 6.7
+Tested up to: 6.8
 Requires at least: 5.6
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -16,10 +16,10 @@ This plugin helps you to create a temporary login for a limited amount of time t
 Give anyone a temporary access to your site for a limited amount of time with role.
 
 = Features: =
-- Enable/Disable Temporary Access
-- Select Any User
-- Restrict User With Time Limit
-- One Time Temporary Access Url
+- Activate or Deactivate Temporary Access
+- Choose Any User for Access
+- Set Time-Limited Access Restrictions
+- Generate a One-Time Temporary Access URL
 
 **Interested in contributing to Temporary Access?**
 Contact me sagorh672(at)gmail.com
@@ -48,8 +48,12 @@ Just activate the plugin, you are good to go. All are done for you.
 
 == Screenshots ==
 1. Dashboard.
+2. Dashboard 2.
+3. Dashboard 3.
 
 == Changelog ==
+= 2.0.1 =
+- Checked for latest wp version 6.8
 = 2.0.0 =
 - Compatibility check for wp v6.7 and major changes in codebase
 = 1.0.2 =

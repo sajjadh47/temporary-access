@@ -14,7 +14,7 @@ jQuery( document ).ready( function( $ )
 			{
 				clearInterval( ta_temporary_timer );
 
-				location.reload();
+				window.location.reload();
 			}
 			
 			// Time calculations for hours, minutes and seconds

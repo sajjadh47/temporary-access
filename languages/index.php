@@ -4,7 +4,7 @@
  *
  * @since         2.0.0
  * @package       Temporary_Access
- * @subpackage    Temporary_Access/admin
+ * @subpackage    Temporary_Access/languages
  * @author        Sajjad Hossain Sagor <sagorh672@gmail.com>
  */
 

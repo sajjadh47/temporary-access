@@ -14,7 +14,7 @@ jQuery( document ).ready( function( $ )
 			{
 				clearInterval( ta_temporary_timer );
 
-				location.reload();
+				window.location.reload();
 			}
 			
 			// Time calculations for hours, minutes and seconds
@@ -34,4 +34,35 @@ jQuery( document ).ready( function( $ )
 		
 		}, 1000 );
 	}
+
+	$( document ).on( 'click', '.temporary-link .copy-to-clipboard', function( event )
+	{
+		var codeElement	= $( this ).closest( '.temporary-link' ).find( 'code' )[0];
+
+		var range = document.createRange();
+
+		range.selectNodeContents( codeElement );
+
+		var selection = window.getSelection();
+
+		selection.removeAllRanges();
+
+		selection.addRange( range );
+
+		try
+		{
+			document.execCommand( 'copy' );
+
+			$( this ).fadeOut( 'slow', function()
+			{
+				$( '.temporary-link .code-copied' ).fadeIn( 'fast' );
+			} );
+		}
+		catch ( err )
+		{
+			console.error( 'Failed to copy:', err );
+		}
+
+		selection.removeAllRanges();
+	} );
 } );

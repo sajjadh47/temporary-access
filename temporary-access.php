@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -8,28 +7,33 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @since             2.0.0
  * @package           Temporary_Access
+ * @author            Sajjad Hossain Sagor <sagorh672@gmail.com>
  *
  * Plugin Name:       Temporary Access
  * Plugin URI:        https://wordpress.org/plugins/temporary-access/
  * Description:       Give anyone a temporary access to your site for a limited amount of time with role.
- * Version:           2.0.0
+ * Version:           2.0.1
+ * Requires at least: 6.5
+ * Requires PHP:      7.4
  * Author:            Sajjad Hossain Sagor
  * Author URI:        https://sajjadhsagor.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       temporary-access
  * Domain Path:       /languages
+ * Requires Plugins:  woocommerce
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) die;
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
 
 /**
  * Currently plugin version.
  */
-define( 'TEMPORARY_ACCESS_VERSION', '2.0.0' );
+define( 'TEMPORARY_ACCESS_PLUGIN_VERSION', '2.0.1' );
 
 /**
  * Define Plugin Folders Path
@@ -42,41 +46,39 @@ define( 'TEMPORARY_ACCESS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-activator.php
- * 
+ * This action is documented in includes/class-temporary-access-activator.php
+ *
  * @since    2.0.0
  */
-function activate_temporary_access()
-{
-	require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-plugin-activator.php';
-	
-	Temporary_Access_Activator::activate();
+function on_activate_temporary_access() {
+	require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-temporary-access-activator.php';
+
+	Temporary_Access_Activator::on_activate();
 }
 
-register_activation_hook( __FILE__, 'activate_temporary_access' );
+register_activation_hook( __FILE__, 'on_activate_temporary_access' );
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-plugin-deactivator.php
- * 
+ * This action is documented in includes/class-temporary-access-deactivator.php
+ *
  * @since    2.0.0
  */
-function deactivate_temporary_access()
-{
-	require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-plugin-deactivator.php';
-	
-	Temporary_Access_Deactivator::deactivate();
+function on_deactivate_temporary_access() {
+	require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-temporary-access-deactivator.php';
+
+	Temporary_Access_Deactivator::on_deactivate();
 }
 
-register_deactivation_hook( __FILE__, 'deactivate_temporary_access' );
+register_deactivation_hook( __FILE__, 'on_deactivate_temporary_access' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
- * 
+ *
  * @since    2.0.0
  */
-require TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-plugin.php';
+require TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-temporary-access.php';
 
 /**
  * Begins execution of the plugin.
@@ -87,10 +89,9 @@ require TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-plugin.php';
  *
  * @since    2.0.0
  */
-function run_temporary_access()
-{
+function run_temporary_access() {
 	$plugin = new Temporary_Access();
-	
+
 	$plugin->run();
 }
 

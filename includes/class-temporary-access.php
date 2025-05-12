@@ -59,12 +59,7 @@ class Temporary_Access {
 	 * @access    public
 	 */
 	public function __construct() {
-		if ( defined( 'TEMPORARY_ACCESS_VERSION' ) ) {
-			$this->version = TEMPORARY_ACCESS_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
-
+		$this->version     = defined( 'TEMPORARY_ACCESS_VERSION' ) ? TEMPORARY_ACCESS_VERSION : '1.0.0';
 		$this->plugin_name = 'temporary-access';
 
 		$this->load_dependencies();
@@ -167,7 +162,6 @@ class Temporary_Access {
 	private function define_public_hooks() {
 		$plugin_public = new Temporary_Access_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 		$this->loader->add_action( 'init', $plugin_public, 'capture_generate_link' );

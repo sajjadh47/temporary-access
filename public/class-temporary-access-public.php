@@ -48,16 +48,6 @@ class Temporary_Access_Public {
 	}
 
 	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since     2.0.0
-	 * @access    public
-	 */
-	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, TEMPORARY_ACCESS_PLUGIN_URL . 'public/css/public.css', array(), $this->version, 'all' );
-	}
-
-	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
 	 * @since     2.0.0

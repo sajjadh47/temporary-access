@@ -155,14 +155,24 @@ class Temporary_Access_Admin {
 	 *                  with 'id' and 'title' keys.
 	 */
 	public function get_settings_sections() {
-		$sections = array(
+		$settings_sections = array(
 			array(
 				'id'    => 'ta_temporary_access_settings',
 				'title' => __( 'Temporary Access Settings', 'temporary-access' ),
 			),
 		);
 
-		return $sections;
+		/**
+		 * Filters the plugin settings sections.
+		 *
+		 * This filter allows you to modify the plugin settings sections.
+		 * You can use this filter to add/remove/edit any settings section.
+		 *
+		 * @since    2.0.1
+		 * @param    array $settings_sections Default settings sections.
+		 * @return   array $settings_sections Modified settings sections.
+		 */
+		return apply_filters( 'ta_temporary_access_settings_sections', $settings_sections );
 	}
 
 	/**
@@ -216,7 +226,17 @@ class Temporary_Access_Admin {
 			),
 		);
 
-		return $settings_fields;
+		/**
+		 * Filters the plugin settings fields.
+		 *
+		 * This filter allows you to modify the plugin settings fields.
+		 * You can use this filter to add/remove/edit any settings field.
+		 *
+		 * @since    2.0.1
+		 * @param    array $settings_fields Default settings fields.
+		 * @return   array $settings_fields Modified settings fields.
+		 */
+		return apply_filters( 'ta_temporary_access_settings_fields', $settings_fields );
 	}
 
 	/**

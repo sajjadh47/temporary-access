@@ -21,9 +21,6 @@ Give anyone a temporary access to your site for a limited amount of time with ro
 - Set Time-Limited Access Restrictions
 - Generate a One-Time Temporary Access URL
 
-**Interested in contributing to Temporary Access?**
-Contact me sagorh672(at)gmail.com
-
 == Installation ==
 To add a WordPress Plugin using the built-in plugin installer:
 

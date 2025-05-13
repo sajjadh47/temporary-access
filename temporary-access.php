@@ -15,7 +15,7 @@
  * Description:       Give anyone a temporary access to your site for a limited amount of time with role.
  * Version:           2.0.1
  * Requires at least: 6.5
- * Requires PHP:      7.4
+ * Requires PHP:      8.0
  * Author:            Sajjad Hossain Sagor
  * Author URI:        https://sajjadhsagor.com/
  * License:           GPL-2.0+

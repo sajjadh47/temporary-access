@@ -1,7 +1,7 @@
 # Temporary Access
 
 **Tags:** wp-admin, admin-login, login, auto-login, access, temporary-access, one-time-access \
-**Tested up to:** 6.7 \
+**Tested up to:** 6.8 \
 **Requires PHP:** 8.0
 
 This plugin helps you to create a temporary login for a limited amount of time to give access anyone.

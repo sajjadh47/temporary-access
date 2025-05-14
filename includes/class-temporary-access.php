@@ -59,7 +59,7 @@ class Temporary_Access {
 	 * @access    public
 	 */
 	public function __construct() {
-		$this->version     = defined( 'TEMPORARY_ACCESS_VERSION' ) ? TEMPORARY_ACCESS_VERSION : '1.0.0';
+		$this->version     = defined( 'TEMPORARY_ACCESS_PLUGIN_VERSION' ) ? TEMPORARY_ACCESS_PLUGIN_VERSION : '1.0.0';
 		$this->plugin_name = 'temporary-access';
 
 		$this->load_dependencies();

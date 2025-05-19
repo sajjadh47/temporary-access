@@ -24,6 +24,7 @@ class Temporary_Access_Deactivator {
 	 * or removing options.
 	 *
 	 * @since     2.0.0
+	 * @static
 	 * @access    public
 	 */
 	public static function on_deactivate() {}

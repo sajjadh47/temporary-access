@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the definition of the WP_Edit_Username_Admin class, which
+ * This file contains the definition of the Temporary_Access_Admin class, which
  * is used to load the plugin's admin-specific functionality.
  *
  * @package       Temporary_Access
@@ -60,8 +60,8 @@ class Temporary_Access_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    2.0.0
-	 * @access   public
+	 * @since     2.0.0
+	 * @access    public
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( $this->plugin_name, TEMPORARY_ACCESS_PLUGIN_URL . 'admin/css/admin.css', array(), $this->version, 'all' );
@@ -70,8 +70,8 @@ class Temporary_Access_Admin {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    2.0.0
-	 * @access   public
+	 * @since     2.0.0
+	 * @access    public
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_name, TEMPORARY_ACCESS_PLUGIN_URL . 'admin/js/admin.js', array( 'jquery' ), $this->version, false );
@@ -102,8 +102,8 @@ class Temporary_Access_Admin {
 	/**
 	 * Adds the plugin settings page to the WordPress dashboard menu.
 	 *
-	 * @since    2.0.0
-	 * @access   public
+	 * @since     2.0.0
+	 * @access    public
 	 */
 	public function admin_menu() {
 		add_menu_page(
@@ -119,8 +119,8 @@ class Temporary_Access_Admin {
 	/**
 	 * Renders the plugin menu page content.
 	 *
-	 * @since    2.0.0
-	 * @access   public
+	 * @since     2.0.0
+	 * @access    public
 	 */
 	public function menu_page() {
 		$this->settings_api->show_forms( __( 'Generate Temporary Access Link', 'temporary-access' ) );
@@ -133,8 +133,8 @@ class Temporary_Access_Admin {
 	 * various administrative tasks, such as registering settings, enqueuing scripts,
 	 * or adding admin notices.
 	 *
-	 * @since    2.0.0
-	 * @access   public
+	 * @since     2.0.0
+	 * @access    public
 	 */
 	public function admin_init() {
 		// set the settings.

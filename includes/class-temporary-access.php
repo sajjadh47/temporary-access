@@ -75,7 +75,7 @@ class Temporary_Access {
 	 *
 	 * - Temporary_Access_Loader. Orchestrates the hooks of the plugin.
 	 * - Temporary_Access_i18n.   Defines internationalization functionality.
-	 * - Sajjad_Dev_Settings_API. Provides an interface for interacting with the WordPress Options API.
+	 * - Sajjad_Dev_Settings_API. Provides an interface for interacting with the WordPress Settings API.
 	 * - Temporary_Access_Admin.  Defines all hooks for the admin area.
 	 * - Temporary_Access_Public. Defines all hooks for the public side of the site.
 	 *
@@ -99,7 +99,7 @@ class Temporary_Access {
 		require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-temporary-access-i18n.php';
 
 		/**
-		 * The class responsible for defining an interface for interacting with the WordPress Options API.
+		 * The class responsible for defining an interface for interacting with the WordPress Settings API.
 		 */
 		require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-sajjad-dev-settings-api.php';
 

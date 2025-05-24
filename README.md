@@ -1,5 +1,7 @@
 # Temporary Access
 
+[![Plugin Banner](https://ps.w.org/temporary-access/assets/banner-772x250.png)](https://wordpress.org/plugins/temporary-access/)
+
 **Tags:** wp-admin, admin-login, login, auto-login, access, temporary-access, one-time-access \
 **Tested up to:** 6.8 \
 **Requires PHP:** 8.0

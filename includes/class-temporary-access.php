@@ -11,8 +11,7 @@
 /**
  * The core plugin class.
  *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing hooks.
+ * This is used to define admin-specific hooks and public-facing hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -52,7 +51,7 @@ class Temporary_Access {
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
+	 * Load the dependencies, set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
 	 * @since     2.0.0
@@ -63,7 +62,6 @@ class Temporary_Access {
 		$this->plugin_name = 'temporary-access';
 
 		$this->load_dependencies();
-		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 	}
@@ -74,7 +72,6 @@ class Temporary_Access {
 	 * Include the following files that make up the plugin:
 	 *
 	 * - Temporary_Access_Loader. Orchestrates the hooks of the plugin.
-	 * - Temporary_Access_i18n.   Defines internationalization functionality.
 	 * - Sajjad_Dev_Settings_API. Provides an interface for interacting with the WordPress Settings API.
 	 * - Temporary_Access_Admin.  Defines all hooks for the admin area.
 	 * - Temporary_Access_Public. Defines all hooks for the public side of the site.
@@ -93,12 +90,6 @@ class Temporary_Access {
 		require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-temporary-access-loader.php';
 
 		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-temporary-access-i18n.php';
-
-		/**
 		 * The class responsible for defining an interface for interacting with the WordPress Settings API.
 		 */
 		require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'includes/class-sajjad-dev-settings-api.php';
@@ -115,21 +106,6 @@ class Temporary_Access {
 		require_once TEMPORARY_ACCESS_PLUGIN_PATH . 'public/class-temporary-access-public.php';
 
 		$this->loader = new Temporary_Access_Loader();
-	}
-
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the Temporary_Access_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since     2.0.0
-	 * @access    private
-	 */
-	private function set_locale() {
-		$plugin_i18n = new Temporary_Access_i18n();
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 	}
 
 	/**
@@ -179,8 +155,7 @@ class Temporary_Access {
 	}
 
 	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
+	 * The name of the plugin used to uniquely identify it within the context of WordPress.
 	 *
 	 * @since     2.0.0
 	 * @access    public

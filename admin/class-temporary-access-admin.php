@@ -112,7 +112,7 @@ class Temporary_Access_Admin {
 			'manage_options',
 			'temporary-access',
 			array( $this, 'menu_page' ),
-			'dashicons-admin-tools'
+			'dashicons-unlock'
 		);
 	}
 

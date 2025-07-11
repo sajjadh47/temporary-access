@@ -13,7 +13,7 @@
  * Plugin Name:       Temporary Access
  * Plugin URI:        https://wordpress.org/plugins/temporary-access/
  * Description:       Give anyone a temporary access to your site for a limited amount of time with role.
- * Version:           2.0.1
+ * Version:           2.0.2
  * Requires at least: 5.6
  * Requires PHP:      8.0
  * Author:            Sajjad Hossain Sagor
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Currently plugin version.
  */
-define( 'TEMPORARY_ACCESS_PLUGIN_VERSION', '2.0.1' );
+define( 'TEMPORARY_ACCESS_PLUGIN_VERSION', '2.0.2' );
 
 /**
  * Define Plugin Folders Path

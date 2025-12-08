@@ -125,7 +125,7 @@ class Temporary_Access {
 
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_init' );
-		$this->loader->add_action( 'admin_bar_menu', $plugin_admin, 'admin_bar_menu' );
+		$this->loader->add_action( 'admin_bar_menu', $plugin_admin, 'admin_bar_menu', 99999 );
 	}
 
 	/**

@@ -3,7 +3,7 @@
 [![Plugin Banner](https://ps.w.org/temporary-access/assets/banner-772x250.png)](https://wordpress.org/plugins/temporary-access/)
 
 **Tags:** wp-admin, admin-login, login, auto-login, access, temporary-access, one-time-access \
-**Tested up to:** 6.8 \
+**Tested up to:** 6.9 \
 **Requires PHP:** 8.0
 
 This plugin helps you to create a temporary login for a limited amount of time to give access anyone.
@@ -59,6 +59,9 @@ Just activate the plugin, you are good to go. All are done for you.
 ![Dashboard.](https://ps.w.org/temporary-access/assets/screenshot-3.png)
 
 ## Changelog
+
+### 2.0.3
+- Checked for latest wp version 6.9
 
 ### 2.0.2
 * Fixed issue: typo giving fatal error
